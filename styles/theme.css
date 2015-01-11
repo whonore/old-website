@@ -14,7 +14,7 @@ html, body {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 0 auto -100px;
+  margin: 0 auto -100px auto;
 }
 
 footer, .push {
@@ -24,91 +24,110 @@ footer, .push {
 /* Header */
 header {
   height: 100%;
-  background-size: cover;
-  background-image: url("../images/background.JPG");
-  background-repeat: no-repeat;
   background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
   background-attachment: fixed;
+  background-image: url("../images/background.JPG");
 }
 
 header a {
+  padding: 13px 8px 13px 8px;
   display: block;
-  padding: 13px 8px;
-  color: black;
+  color: #000000;
   text-decoration: none;
 }
 
 header hr {
-  border: 0;
   height: 3px;
-  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
-  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
-  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
-  background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+  border: 0;
+  background: #000000;
+  background: -moz-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,0,0,0)), color-stop(50%, rgba(0,0,0,0.75)), color-stop(100%, rgba(0,0,0,0)));
+  background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0) 100%);
+  background: -o-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0) 100%);
+  background: -ms-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0) 100%);
+  background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );
 }
 
 .container {
+  width: 50%;
+  margin: 0 auto 0 auto;
+  padding: 10px 20px 10px 20px;
   position: relative;
   top: 20%;
-  margin: 0px auto;
-  padding: 10px 20px;
-  width: 50%;
+  border-radius: 100px;
   background-color: #79CED6;
   opacity: 0.7;
-  border-radius: 100px;
-  text-align: center;
   font-size: 300%;
+  text-align: center;
 }
 
 /* Navbar */
 nav {
+  padding: 0 0 5px 0;
   position: fixed;
   top: 10%;
   right: 0;
-  padding-bottom: 5px;
-  background-color: #30959E;
-  overflow: hidden;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
+  background-color: #30959E;
+  opacity: 0.5;
+  overflow: hidden;
 }
 
 nav li {
   margin: 5px 0 0 7px;
-  background-color: #79CED6;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
+  -webkit-box-shadow: 2px 3px 5px 0 #020B24;
+  -moz-box-shadow: 2px 3px 5px 0 #020B24;
+  box-shadow: 2px 3px 5px 0 #020B24;
+  background-color: #79CED6;
 }
 
 nav li a {
+  padding: 13px 8px 13px 8px;
   display: block;
-  padding: 13px 8px;
-  color: black;
-  text-decoration: none;
   font-size: 120%;
+  color: #000000;
+  text-decoration: none;
+
+}
+
+nav:hover {
+  opacity: 0.9;
+}
+
+nav li:hover {
+  border: 2px double #48ABB4;
 }
 
 /* Body */
 h1 {
-  position: relative;
   width: 70%;
-  margin: 20px auto 0;
-  padding: 15px 10px;
-  background-color: #30959E;
+  margin: 20px auto 0 auto;
+  padding: 15px 10px 15px 10px;
+  position: relative;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  box-shadow: 2px 3px 5px #020B24;
+  -webkit-box-shadow: 2px 3px 5px 0 #020B24;
+  -moz-box-shadow: 2px 3px 5px 0 #020B24;
+  box-shadow: 2px 3px 5px 0 #020B24;
   font-size: 200%;
+  background-color: #30959E;
 }
 
 article {
   width: 70%;
   margin: 0 auto 15px auto;
-  padding: 15px 10px;
-  background-color: #79CED6;
+  padding: 15px 10px 15px 10px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   font-size: 150%;
-  border: 2px groove;
+  border: 2px ridge;
+  background-color: #79CED6;
 }
 
 dt {
@@ -117,18 +136,29 @@ dt {
 }
 
 dt:before, dt:after {
-  display: inline-block;
-  content: " ";
-  background-size: 30px 30px;
+  content: "";
   height: 30px;
   width: 30px;
+  background-size: 30px 30px;
   margin: 0 5px 0 5px;
+  display: inline-block;
 }
 
 dd {
   margin: 10px 0 20px 0;
   text-align: center;
 }
+
+.picture-box {
+  margin: 15px auto 0 auto;
+  text-align: center;
+}
+
+.picture-box img {
+  height: 300px;
+  border-radius: 50%;
+}
+
 .scientist:before, .scientist:after {
   background-image: url('../images/lambda.svg');
 }
@@ -143,8 +173,8 @@ dd {
 
 /* Footer */
 footer {
-  background-color: #30959E;
   font-size: 120%;
+  background-color: #30959E;
   overflow: hidden;
 }
 
@@ -153,9 +183,9 @@ footer li {
 }
 
 footer a {
-  color: black;
-  text-decoration: none;
   font-size: 120%;
+  color: #000000;
+  text-decoration: none;
 }
 
 footer img {
@@ -182,7 +212,7 @@ footer img {
 }
 
 .bubble {
-  background-color: #FFFFFF;
+  background-color: #79CED6;
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
   margin: 5px 0 0 0;

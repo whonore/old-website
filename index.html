@@ -3,61 +3,72 @@
 
 <head>
   <title>Wolf Honore</title>
-  <link rel="stylesheet" type="text/css" href="styles/reset.css" />
-  <link rel="stylesheet" type="text/css" href="styles/theme.css" />
-  <link rel="icon" href="images/favicon.png" type="image/png" />
+  <link rel="stylesheet" type="text/css" href="styles/reset.min.css" />
+  <link rel="stylesheet" type="text/css" href="styles/theme.min.css" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="scripts/smooth_scroll.min.js"></script>
+  <!-- <link rel="icon" href="images/favicon.png" type="image/png" /> -->
 </head>
 
 <body>
-  
   <header>
     <div class="container">
-      <p>My name is Wolf Honor&eacute.</p> 
+      <p>My name is Wolf Honor&eacute.</p>
       <p>Welcome to my page.</p>
-      
+
       <hr>
-      
+
       <p><a href="#about-me">Click to learn more.</a></p>
     </div>
   </header>
-  
+
   <div class="page-wrap">
     <nav>
       <ul>
         <li><a href="#about-me">About Me</a></li>
-        <li><a href="#">Projects</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#">Photos</a></li>
         <li><a href="#contact-info">Contact Info</a></li>
       </ul>
-    </nav>    
+    </nav>
 
-    <h1>Who is Wolf?</h1>
-    <article id="about-me">
+    <div class="picture-box">
+      <img src="images/wolf.jpg" />
+    </div>
+    
+    <h1 id="about-me">Who is Wolf?</h1>
+    <article>
       <dl>
         <dt class="scientist">Scientist</dt>
         <dd>
            I am a student at the University of Rochester pursuing a double major
-           in Math and Computer Science. I am currently very interested in 
-           Programming Language Design, Natural Language Processing and Genetic 
+           in Math and Computer Science. I am currently very interested in
+           Programming Language Design, Natural Language Processing and Genetic
            Algorithms.
         </dd>
-        
+
         <dt class="musician">Musician</dt>
         <dd>
            I've been playing electric bass for myself since 2006 and with a blues
            band since 2012. I also play a bit of guitar and saxophone.
         </dd>
-        
+
         <dt class="photographer">Photographer</dt>
         <dd>
            I've photographed wildlife and landscapes in Peru, Argentina, Jordan
            and more. You can see some of the better photos below.
         </dd>
       </dl>
-    </article>    
+    </article>
     
+    <h1>What has Wolf done?</h1>
+    <article id="projects">
+    
+    </article>
+
     <div class="push"></div>
   </div>
-  
+
   <footer id="contact-info">
     <ul class="columns">
       <a href="mailto:whonore@u.rochester.edu">
@@ -72,7 +83,7 @@
         </ul>
       </li>
       </a>
-      
+
       <a href="https://github.com/whonore">
       <li class="column bubble" id="github">
         <ul class="rows">
@@ -85,7 +96,7 @@
         </ul>
       </li>
       </a>
-      
+
       <a href="https://www.linkedin.com/in/whonore">
       <li class="column bubble" id="linkedin">
         <ul class="rows">
