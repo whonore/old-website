@@ -7,6 +7,7 @@
   <link rel="stylesheet" type="text/css" href="styles/theme.min.css" />
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="scripts/smooth_scroll.min.js"></script>
+  <script src="scripts/expand.min.js"></script>
   <!-- <link rel="icon" href="images/favicon.png" type="image/png" /> -->
 </head>
 
@@ -63,7 +64,62 @@
     
     <h1>What has Wolf done?</h1>
     <article id="projects">
-    
+      <button name="lithp">
+        <span>-</span>
+        LITHP (Lambdas ImplemenTed Handily in Python)
+      </button>
+      <div id="lithp">
+        <p>
+          A toy interpreted LISP-like language. It supports lambda function 
+          definition and application. 
+        </p>
+        
+        <br>   
+        
+        <h3>Planned additions:</h3>
+        <ul>
+          <li>Arithmetic</li>
+          <li>Multi-parameter functions</li>
+          <li>Lists</li>
+        </ul>
+      </div>
+      <button name="imageevolver">
+        <span>-</span>
+        ImageEvolver
+      </button>
+      <div id="imageevolver">
+        <p>
+          A Python app that uses a simple genetic algorithm to "evolve" a set of
+          randomized circles and rectangles towards a given image. It generates
+          a "movie" of the evolution by saving a series of SVG images and 
+          looping through them in an html file.
+        </p>
+      </div>
+      <button name="sopl">
+        <span>-</span>
+        SOP-L (Sack Of Potatoes Launcher)
+      </button>
+      <div id="sopl">
+        <p>
+          A PVC potato launcher. The potato is launched by spraying aerosol in 
+          the back, sealing the chamber and sparking the spark plug. Currently 
+          decommissioned due to design flaws and safety concerns.
+        </p>
+        
+        <br>
+        
+        <h3>
+          Plans for the SOP-L Mk 2 are underway which will address many of the 
+          previous version's issues by providing:
+        </h3>
+        <ul>
+          <li>
+            A more efficient and consistent way of loading and cleaning out 
+            the aerosol
+          </li>
+          <li>A method for launching remotely (Bluetooth)</li>
+        </ul>
+      </div>
     </article>
 
     <div class="push"></div>

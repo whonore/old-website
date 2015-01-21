@@ -171,6 +171,62 @@ dd {
   background-image: url('../images/camera.svg');
 }
 
+/* Projects */
+button {
+  width: 100%;
+  margin: 0 0 5px 0;
+  padding: 5px 0 5px 5px;
+  border: 0;
+  border-bottom: 1px solid #020B24;
+  border-left: 1px solid #020B24;
+  border-bottom-left-radius: 5px;
+  -webkit-box-shadow: inset -1px -2px 5px 0px rgba(2,11,36,1);
+  -moz-box-shadow: inset -1px -2px 5px 0px rgba(2,11,36,1);
+  box-shadow: inset -1px -2px 5px 0px rgba(2,11,36,1);
+  font-size: 120%;
+  font-weight: normal;
+  text-align: left;
+  background: rgba(121,206,214,1);
+  background: -moz-linear-gradient(top, rgba(121,206,214,1) 0%, rgba(3,234,255,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(121,206,214,1)), color-stop(100%, rgba(3,234,255,1)));
+  background: -webkit-linear-gradient(top, rgba(121,206,214,1) 0%, rgba(3,234,255,1) 100%);
+  background: -o-linear-gradient(top, rgba(121,206,214,1) 0%, rgba(3,234,255,1) 100%);
+  background: -ms-linear-gradient(top, rgba(121,206,214,1) 0%, rgba(3,234,255,1) 100%);
+  background: linear-gradient(to bottom, rgba(121,206,214,1) 0%, rgba(3,234,255,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#79ced6', endColorstr='#03eaff', GradientType=0 );
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+button span {
+  display: inline-block;
+  width: 15px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 105%;
+  font-weight: normal;
+}
+
+#projects div {
+  margin: 0 0 20px 0;
+}
+
+#projects p, ul, h3 {
+  padding: 0 0 0 5px;
+}
+
+#projects li {
+  padding: 0 0 0 10px;
+}
+
 /* Footer */
 footer {
   font-size: 120%;
