@@ -3,18 +3,22 @@
 
 <head>
   <title>Wolf Honore</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
   <link rel="stylesheet" type="text/css" href="styles/reset.min.css" />
-  <link rel="stylesheet" type="text/css" href="styles/theme.min.css" />
+  <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="styles/theme.css" />
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
   <script src="scripts/smooth_scroll.min.js"></script>
   <script src="scripts/expand.min.js"></script>
+  <script src="scripts/pictures.js"></script>
   <!-- <link rel="icon" href="images/favicon.png" type="image/png" /> -->
 </head>
 
 <body>
   <header>
     <div class="container">
-      <p>My name is Wolf Honor&eacute.</p>
+      <p>I'm Wolf Honor&eacute;.</p>
       <p>Welcome to my page.</p>
 
       <hr>
@@ -28,15 +32,15 @@
       <ul>
         <li><a href="#about-me">About Me</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#">Photos</a></li>
+        <li><a href="#photos">Photos</a></li>
         <li><a href="#contact-info">Contact Info</a></li>
       </ul>
     </nav>
 
     <div class="picture-box">
-      <img src="images/wolf.jpg" />
+      <img src="images/wolf.jpg" alt="Wolf Honore" />
     </div>
-    
+
     <h1 id="about-me">Who is Wolf?</h1>
     <article>
       <dl>
@@ -50,7 +54,7 @@
 
         <dt class="musician">Musician</dt>
         <dd>
-           I've been playing electric bass for myself since 2006 and with a blues
+           I've been playing electric bass on my own since 2006 and with a blues
            band since 2012. I also play a bit of guitar and saxophone.
         </dd>
 
@@ -61,27 +65,30 @@
         </dd>
       </dl>
     </article>
-    
-    <h1>What has Wolf done?</h1>
-    <article id="projects">
+
+    <h1 id="projects">What has Wolf done?</h1>
+    <article>
       <button name="lithp">
         <span>-</span>
         LITHP (Lambdas ImplemenTed Handily in Python)
       </button>
       <div id="lithp">
         <p>
-          A toy interpreted LISP-like language. It supports lambda function 
-          definition and application. 
+          A toy interpreted LISP-like language. It supports lambda function
+          definition and application.
         </p>
         
-        <br>   
-        
-        <h3>Planned additions:</h3>
+        <h3>Possible additions:</h3>
         <ul>
           <li>Arithmetic</li>
           <li>Multi-parameter functions</li>
           <li>Lists</li>
         </ul>
+        
+        <a href="https://github.com/whonore/LITHP">
+          <img src="images/github.svg" alt="GitHub Icon" width="32px" height="32px" />
+          See the project on GitHub.
+        </a>
       </div>
       <button name="imageevolver">
         <span>-</span>
@@ -91,9 +98,14 @@
         <p>
           A Python app that uses a simple genetic algorithm to "evolve" a set of
           randomized circles and rectangles towards a given image. It generates
-          a "movie" of the evolution by saving a series of SVG images and 
+          a "movie" of the evolution by saving a series of SVG images and
           looping through them in an html file.
         </p>
+        
+        <a href="https://github.com/whonore/ImageEvolver">
+          <img src="images/github.svg" alt="GitHub Icon" width="32px" height="32px" />
+          See the project on GitHub.
+        </a>
       </div>
       <button name="sopl">
         <span>-</span>
@@ -101,24 +113,59 @@
       </button>
       <div id="sopl">
         <p>
-          A PVC potato launcher. The potato is launched by spraying aerosol in 
-          the back, sealing the chamber and sparking the spark plug. Currently 
+          A PVC potato launcher. The potato is launched by spraying aerosol in
+          the back, sealing the chamber and sparking the spark plug. Currently
           decommissioned due to design flaws and safety concerns.
         </p>
         
-        <br>
-        
         <h3>
-          Plans for the SOP-L Mk 2 are underway which will address many of the 
+          Plans for the SOP-L Mk 2 are underway which will address many of the
           previous version's issues by providing:
         </h3>
         <ul>
           <li>
-            A more efficient and consistent way of loading and cleaning out 
+            A more efficient and consistent way of loading and cleaning out
             the aerosol
           </li>
           <li>A method for launching remotely (Bluetooth)</li>
         </ul>
+      </div>
+    </article>
+
+    <h1 id="photos">Where has Wolf been?</h1>
+    <article>
+      <form class="folder-select">
+        <input id="peru" type="radio" name="folder" value="peru" checked>
+          <label for="peru">Peru</label>
+        <input id="argentina" type="radio" name="folder" value="argentina">
+          <label for="argentina">Argentina</label>
+        <input id="france" type="radio" name="folder" value="france">
+          <label for="france">France</label>
+        <input id="jordan" type="radio" name="folder" value="jordan">
+          <label for="jordan">Jordan</label>
+      </form>
+
+      <div class="row">
+        <div class="col-xs-6 col-md-6">
+          <div class="thumbnail">
+            <img src="images/peru/1.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-xs-6 col-md-6">
+          <div class="thumbnail">
+            <img src="images/peru/2.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-xs-6 col-md-6">
+          <div class="thumbnail">
+            <img src="images/peru/3.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-xs-6 col-md-6">
+          <div class="thumbnail">
+            <img src="images/peru/4.jpg" alt="">
+          </div>
+        </div>
       </div>
     </article>
 
@@ -127,44 +174,44 @@
 
   <footer id="contact-info">
     <ul class="columns">
-      <a href="mailto:whonore@u.rochester.edu">
       <li class="column bubble" id="email">
+      <a href="mailto:whonore@u.rochester.edu">
         <ul class="rows">
           <li class="row">
-            <img src="images/email.svg" />
+            <img src="images/email.svg" alt="email icon" />
           </li>
           <li class="row">
             whonore@u.rochester.edu
           </li>
         </ul>
-      </li>
       </a>
+      </li>
 
-      <a href="https://github.com/whonore">
       <li class="column bubble" id="github">
+      <a href="https://github.com/whonore">
         <ul class="rows">
           <li class="row">
-            <img src="images/github.svg" />
+            <img src="images/github.svg" alt="GitHub icon" />
           </li>
           <li class="row">
             whonore
           </li>
         </ul>
-      </li>
       </a>
+      </li>
 
-      <a href="https://www.linkedin.com/in/whonore">
       <li class="column bubble" id="linkedin">
+      <a href="https://www.linkedin.com/in/whonore">
         <ul class="rows">
           <li class="row">
-            <img src="images/linkedin.svg" />
+            <img src="images/linkedin.svg" alt="LinkedIn icon" />
           </li>
           <li class="row">
             whonore
           </li>
         </ul>
-      </li>
       </a>
+      </li>
     </ul>
   </footer>
 </body>

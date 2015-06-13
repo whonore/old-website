@@ -5,6 +5,11 @@ body {
   background-color: #ADE8ED;
 }
 
+a {
+  color: black;
+  font-weight: bold;
+}
+
 /* To make footer stick to bottom */
 html, body {
   height: 100%;
@@ -43,12 +48,10 @@ header hr {
   border: 0;
   background: #000000;
   background: -moz-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0) 100%);
-  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,0,0,0)), color-stop(50%, rgba(0,0,0,0.75)), color-stop(100%, rgba(0,0,0,0)));
   background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0) 100%);
   background: -o-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0) 100%);
   background: -ms-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0) 100%);
   background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );
 }
 
 .container {
@@ -93,7 +96,6 @@ nav li a {
   font-size: 120%;
   color: #000000;
   text-decoration: none;
-
 }
 
 nav:hover {
@@ -188,12 +190,10 @@ button {
   text-align: left;
   background: rgba(121,206,214,1);
   background: -moz-linear-gradient(top, rgba(121,206,214,1) 0%, rgba(3,234,255,1) 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(121,206,214,1)), color-stop(100%, rgba(3,234,255,1)));
   background: -webkit-linear-gradient(top, rgba(121,206,214,1) 0%, rgba(3,234,255,1) 100%);
   background: -o-linear-gradient(top, rgba(121,206,214,1) 0%, rgba(3,234,255,1) 100%);
   background: -ms-linear-gradient(top, rgba(121,206,214,1) 0%, rgba(3,234,255,1) 100%);
   background: linear-gradient(to bottom, rgba(121,206,214,1) 0%, rgba(3,234,255,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#79ced6', endColorstr='#03eaff', GradientType=0 );
 }
 
 button:hover {
@@ -225,6 +225,32 @@ h3 {
 
 #projects li {
   padding: 0 0 0 10px;
+}
+
+/* Photos */
+.folder-select {
+  text-align: center;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"] + label {
+  margin: 0;
+  padding: 5px;
+  border: 1px solid #020B24;
+  border-radius: 5px;
+  background: rgba(121,206,214,1);
+  background: -moz-linear-gradient(top, rgba(121,206,214,1) 0%, rgba(3,234,255,1) 100%);
+  background: -webkit-linear-gradient(top, rgba(121,206,214,1) 0%, rgba(3,234,255,1) 100%);
+  background: -o-linear-gradient(top, rgba(121,206,214,1) 0%, rgba(3,234,255,1) 100%);
+  background: -ms-linear-gradient(top, rgba(121,206,214,1) 0%, rgba(3,234,255,1) 100%);
+  background: linear-gradient(to bottom, rgba(121,206,214,1) 0%, rgba(3,234,255,1) 100%);
+}
+
+input[type="radio"]:checked + label {
+  background: #30959E;
 }
 
 /* Footer */
