@@ -1,0 +1,22 @@
+<div class="factor-code"><pre><span class="c">! Wolf Honore</span>
+<span class="c">! Problem 001</span>
+<span class="c">! Description: Find the sum of all the multiples of 3 or 5 below 1000.</span>
+<span class="c">! Method: Generates a list from 1 to 999 and sums every value that is a </span>
+<span class="c">! multiple of 3 or 5. Any non multiple is replaced with a 0.</span>
+<span class="c">! Running time: 0.000177331 seconds </span>
+
+<span class="kn">USING:</span> <span class="nn">kernel</span> <span class="nn">math</span> <span class="nn">math.ranges</span> <span class="nn">sequences</span> <span class="nn">tools.time</span> <span class="k">;</span>
+<span class="kn">IN:</span> <span class="nn">eul.p001</span>
+
+<span class="k">:</span> <span class="nf">mult3or5?</span> <span class="nf">( </span><span class="nv">x</span> <span class="nf">-- </span><span class="nv">?</span> <span class="nf">)</span>
+    <span class="nb">dup </span>[ <span class="m">3 </span><span class="nb">mod </span><span class="m">0 </span><span class="nb">= </span>] [ <span class="m">5 </span><span class="nb">mod </span><span class="m">0 </span><span class="nb">= </span>] <span class="nb">bi or</span>
+        [ ]
+        [ <span class="nb">drop </span><span class="m">0 </span>] 
+    <span class="nb">if </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">sum3or5</span> <span class="nf">( </span><span class="nv">n</span> <span class="nf">-- </span><span class="nv">sum</span> <span class="nf">) </span>[1,b] [ mult3or5? ] <span class="nb">map sum </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p001-run</span> <span class="nf">( -- </span><span class="nv">sum</span> <span class="nf">) </span><span class="m">999 </span>sum3or5 <span class="k">;</span>
+    
+<span class="k">:</span> <span class="nf">p001-time</span> <span class="nf">( -- </span><span class="nv">time</span> <span class="nf">) </span>[ p001-run ] time <span class="k">;</span>
+</pre></div>

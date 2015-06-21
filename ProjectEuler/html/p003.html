@@ -1,0 +1,16 @@
+<div class="factor-code"><pre><span class="c">! Wolf Honore</span>
+<span class="c">! Problem 003 </span>
+<span class="c">! Description: What is the largest prime factor of the number 600851475143?</span>
+<span class="c">! Method: Uses the built-in primes vocabulary to generate all the factors</span>
+<span class="c">! and take the last one.</span>
+<span class="c">! Running time: 0.001002689 seconds</span>
+
+<span class="kn">USING:</span> <span class="nn">math.primes.factors</span> <span class="nn">sequences</span> <span class="nn">tools.time</span> <span class="k">;</span>
+<span class="kn">IN:</span> <span class="nn">eul.p003</span>
+
+<span class="k">:</span> <span class="nf">max-factor</span> <span class="nf">( </span><span class="nv">n</span> <span class="nf">-- </span><span class="nv">max</span> <span class="nf">) </span>factors <span class="nb">last </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p003-run</span> <span class="nf">( -- </span><span class="nv">max</span> <span class="nf">) </span><span class="m">600851475143 </span> max-factor <span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p003-time</span> <span class="nf">( -- </span><span class="nv">max</span> <span class="nf">) </span>[ p003-run ] time <span class="k">;</span>
+</pre></div>

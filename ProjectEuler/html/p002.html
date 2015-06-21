@@ -1,0 +1,25 @@
+<div class="factor-code"><pre><span class="c">! Wolf Honore</span>
+<span class="c">! Problem 002</span>
+<span class="c">! Description: By considering the terms in the Fibonacci sequence whose values </span>
+<span class="c">! do not exceed four million, find the sum of the even-valued terms.</span>
+<span class="c">! Method: Generates all Fibonacci numbers less than 4000000 using an</span>
+<span class="c">! iterative method then filters out odd values and sums the remaining values.</span>
+<span class="c">! Running time: 0.000171344 seconds</span>
+
+<span class="kn">USING:</span> <span class="nn">fry</span> <span class="nn">kernel</span> <span class="nn">math</span> <span class="nn">sequences</span> <span class="nn">tools.time</span> <span class="k">;</span>
+<span class="kn">IN:</span> <span class="nn">eul.p002</span>
+
+<span class="k">:</span> <span class="nf">nextFib</span> <span class="nf">( </span><span class="nv">x</span> <span class="nv">y</span> <span class="nf">-- </span><span class="nv">y</span> <span class="nv">z</span> <span class="nf">) </span><span class="nb">swap </span>[ <span class="nb">+ </span>] <span class="nb">keep </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">fibSequenceUntil</span> <span class="nf">( </span><span class="nv">max</span> <span class="nf">-- </span><span class="nv">seq</span> <span class="nf">) </span>
+    { <span class="m">1 2 </span>} <span class="nb">swap</span>
+        &#39;[ <span class="nb">dup last </span>_ <span class="nb">&gt;= </span>]
+        [ <span class="nb">dup </span><span class="m">2 </span><span class="nb">tail* </span>[ <span class="nb">first </span>] [ <span class="nb">second </span>] <span class="nb">bi </span>nextFib <span class="nb">drop suffix </span>] 
+    <span class="nb">until </span><span class="k">;</span>
+    
+<span class="k">:</span> <span class="nf">sumEven</span> <span class="nf">( </span><span class="nv">seq</span> <span class="nf">-- </span><span class="nv">sum</span> <span class="nf">) </span>[ <span class="m">2 </span><span class="nb">mod </span><span class="m">0 </span><span class="nb">= </span>] <span class="nb">filter sum </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p002-run</span> <span class="nf">( -- </span><span class="nv">sum</span> <span class="nf">) </span><span class="m">4000000 </span>fibSequenceUntil sumEven <span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p002-time</span> <span class="nf">( -- </span><span class="nv">sum</span> <span class="nf">) </span>[ p002-run ] time <span class="k">;</span>
+</pre></div>

@@ -1,0 +1,53 @@
+h1 {
+  text-align: center;
+}
+
+.problem-select {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.row {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-left: -6px;
+  margin-right: -8px;
+}
+
+button {
+  margin-bottom: 0;
+}
+
+button.active {
+  -webkit-box-shadow: inset 1px 0 5px 0px rgba(2,11,36,1);
+  -moz-box-shadow: inset 1px 0 5px 0px rgba(2,11,36,1);
+  box-shadow: inset 1px 0 5px 0px rgba(2,11,36,1);
+}
+
+button.invalid {
+  pointer-events: none;
+  cursor: not-allowed;
+  background: rgba(106,146,149,1);
+  background: -moz-linear-gradient(top, rgba(106,146,149,1) 0%, rgba(77,122,128,1) 100%);
+  background: -webkit-linear-gradient(top, rgba(106,146,149,1) 0%, rgba(77,122,128,1) 100%);
+  background: -o-linear-gradient(top, rgba(106,146,149,1) 0%, rgba(77,122,128,1) 100%);
+  background: -ms-linear-gradient(top, rgba(106,146,149,1) 0%, rgba(77,122,128,1) 100%);
+  background: linear-gradient(to bottom, rgba(106,146,149,1) 0%, rgba(77,122,128,1) 100%);
+}
+
+.code-area {
+  width: 90%;
+  height: 500px;
+  margin: 15px auto 0 auto;
+}
+
+.code-area>* {
+  height: 100%;
+  width: 49%;
+  display: inline-block;
+}
+
+.factor-code, .factor-code pre {
+  height: 100%;
+}
