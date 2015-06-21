@@ -1,7 +1,5 @@
 $(document).ready(function() {
   loadButtons(6);
-  
-  $(buttons).click(loadFactor);
 });
 
 function loadButtons(numRows) {
