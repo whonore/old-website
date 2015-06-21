@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  loadButtons(6);
+  loadButtons(8);
 });
 
 function loadButtons(numRows) {
@@ -14,7 +14,7 @@ function loadButtons(numRows) {
     var rows = $('.problem-select .row');
     for (var i = 0; i < numRows; i++) {
       for (var j = 1; j <= 6; j++) {
-        var num = (j + i * (numRows + 1)).toString();
+        var num = (j + i * 6).toString();
         var padded = num;
         
         while (padded.length < 3) {
