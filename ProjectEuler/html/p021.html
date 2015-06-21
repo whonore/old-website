@@ -1,0 +1,22 @@
+<div class="factor-code"><pre><span class="c">! Wolf Honore</span>
+<span class="c">! Problem 021</span>
+<span class="c">! Description: Evaluate the sum of all the amicable numbers under 10000.</span>
+<span class="c">! Method: Filters out non-amicable numbers from 2 to 10000 and sums them.</span>
+<span class="c">! Running time: 0.079062069 seconds</span>
+
+<span class="kn">USING:</span> <span class="nn">kernel</span> <span class="nn">math.primes.factors</span> <span class="nn">math.ranges</span> <span class="nn">sequences</span>
+<span class="nn">tools.time</span> <span class="k">;</span>
+<span class="kn">IN:</span> <span class="nn">eul.p021</span>
+
+<span class="k">:</span> <span class="nf">is-amic</span> <span class="nf">( </span><span class="nv">n</span> <span class="nf">-- </span><span class="nv">?</span> <span class="nf">) </span>
+    [ divisors <span class="nb">but-last sum </span>] <span class="nb">keep </span>
+    [ <span class="nb">= not </span>] <span class="nb">2keep swap</span>
+    divisors <span class="nb">but-last sum = and </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">sum-amic-under</span> <span class="nf">( </span><span class="nv">n</span> <span class="nf">-- </span><span class="nv">sum</span> <span class="nf">) </span>
+    <span class="m">2 </span><span class="nb">swap </span>[a,b] [ is-amic ] <span class="nb">filter sum </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p021-run</span> <span class="nf">( -- </span><span class="nv">sum</span> <span class="nf">) </span><span class="m">10000 </span>sum-amic-under <span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p021-time</span> <span class="nf">( -- </span><span class="nv">sum</span> <span class="nf">) </span>[ p021-run ] time <span class="k">;</span>
+</pre></div>

@@ -1,0 +1,30 @@
+<div class="factor-code"><pre><span class="c">! Wolf Honore</span>
+<span class="c">! Problem 037</span>
+<span class="c">! Description: Find the sum of the only eleven primes that are both </span>
+<span class="c">! truncatable from left to right and right to left.</span>
+<span class="c">! Method: Creates a list of truncatable primes until 11 have been found.</span>
+<span class="c">! Truncateability is checked by removing values from the head and tail of the</span>
+<span class="c">! number by increasing amounts and checking that all remaining numbers are </span>
+<span class="c">! still prime.</span>
+<span class="c">! Running time: 0.046943335 seconds</span>
+
+<span class="kn">USING:</span> <span class="nn">kernel</span> <span class="nn">math.parser</span> <span class="nn">math.primes</span> <span class="nn">math.ranges</span> <span class="nn">sequences</span>
+<span class="nn">tools.time</span> <span class="k">;</span>
+<span class="kn">IN:</span> <span class="nn">eul.p037</span>
+
+<span class="k">:</span> <span class="nf">(truncateable?)</span> <span class="nf">( </span><span class="nv">n</span> <span class="nv">str</span> <span class="nf">-- </span><span class="nv">?</span> <span class="nf">) </span>
+    <span class="nb">swap </span>[ <span class="nb">tail </span>] [ <span class="nb">head </span>] <span class="nb">bi-curry bi </span>[ string&gt;number prime? ] <span class="nb">bi@ and </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">truncateable?</span> <span class="nf">( </span><span class="nv">n</span> <span class="nf">-- </span><span class="nv">?</span> <span class="nf">) </span>
+    number&gt;string <span class="nb">dup length </span>[1,b) <span class="nb">swap </span>[ (truncateable?) ] <span class="nb">curry all? </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">all-truncateable</span> <span class="nf">( -- </span><span class="nv">seq</span> <span class="nf">) </span>
+    V{ } <span class="nb">clone </span><span class="m">8 </span>next-prime
+        [ <span class="nb">over length </span><span class="m">11 </span><span class="nb">= </span>]
+        [ <span class="nb">dup </span>truncateable? [ [ <span class="nb">suffix </span>] <span class="nb">keep </span>] <span class="nb">when </span>next-prime ]
+    <span class="nb">until drop </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p037-run</span> <span class="nf">( -- </span><span class="nv">sum</span> <span class="nf">) </span>all-truncateable <span class="nb">sum </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p037-time</span> <span class="nf">( -- </span><span class="nv">sum</span> <span class="nf">) </span>[ p037-run ] time <span class="k">;</span>
+</pre></div>

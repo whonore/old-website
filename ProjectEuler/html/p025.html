@@ -1,0 +1,21 @@
+<div class="factor-code"><pre><span class="c">! Wolf Honore</span>
+<span class="c">! Problem 025</span>
+<span class="c">! Description: What is the index of the first term in the Fibonacci sequence </span>
+<span class="c">! to contain 1000 digits?</span>
+<span class="c">! Method: Computes Fibonacci numbers and their indices until one is greater</span>
+<span class="c">! than 10^1000.</span>
+<span class="c">! Running time: 0.001872248 seconds</span>
+
+<span class="kn">USING:</span> <span class="nn">fry</span> <span class="nn">kernel</span> <span class="nn">math</span> <span class="nn">math.functions</span> <span class="nn">tools.time</span> <span class="k">;</span>
+<span class="kn">IN:</span> <span class="nn">eul.p025</span>
+
+<span class="k">:</span> <span class="nf">first-to-n-digits</span> <span class="nf">( </span><span class="nv">max</span> <span class="nf">-- </span><span class="nv">idx</span> <span class="nf">) </span>
+    <span class="m">1 </span><span class="nb">- </span><span class="m">10 </span><span class="nb">swap </span>^ &#39;[ <span class="nb">dup </span>_ <span class="nb">&gt; </span>]
+    [ <span class="m">2 1 1 </span>] <span class="nb">dip</span>
+        [ [ <span class="nb">+ </span>] <span class="nb">keep swap </span>[ <span class="m">1 </span><span class="nb">+ </span>] <span class="nb">2dip </span>]
+    <span class="nb">until 2drop </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p025-run</span> <span class="nf">( -- </span><span class="nv">idx</span> <span class="nf">) </span><span class="m">1000 </span>first-to-n-digits <span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p025-time</span> <span class="nf">( -- </span><span class="nv">idx</span> <span class="nf">) </span>[ p025-run ] time <span class="k">;</span>
+</pre></div>

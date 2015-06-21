@@ -1,0 +1,21 @@
+<div class="factor-code"><pre><span class="c">! Wolf Honore</span>
+<span class="c">! Problem 017</span>
+<span class="c">! Description: If all the numbers from 1 to 1000 (one thousand) inclusive were </span>
+<span class="c">! written out in words, how many letters would be used?</span>
+<span class="c">! Method: Uses the built-in math.text.english vocabulary to convert every</span>
+<span class="c">! number to a word, filters out non-letter characters and sums the lengths.</span>
+<span class="c">! Running time: 0.001842027 seconds</span>
+
+<span class="kn">USING:</span> <span class="nn">kernel</span> <span class="nn">math</span> <span class="nn">math.ranges</span> <span class="nn">math.text.english</span> <span class="nn">sequences</span>
+<span class="nn">tools.time</span> <span class="k">;</span>
+<span class="kn">IN:</span> <span class="nn">eul.p017</span>
+
+<span class="k">:</span> <span class="nf">count-letters</span> <span class="nf">( </span><span class="nv">max</span> <span class="nf">-- </span><span class="nv">count</span> <span class="nf">)</span>
+   [1,b] [ number&gt;text ] <span class="nb">map </span>
+   [ [ [ <span class="m">96 </span><span class="nb">&gt; </span>] [ <span class="m">123 </span><span class="nb">&lt; </span>] <span class="nb">bi and </span>] <span class="nb">filter </span>] <span class="nb">map</span>
+   [ <span class="nb">length </span>] [ <span class="nb">+ </span>] <span class="nb">map-reduce </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p017-run</span> <span class="nf">( -- </span><span class="nv">sum</span> <span class="nf">) </span><span class="m">1000 </span>count-letters <span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p017-time</span> <span class="nf">( -- </span><span class="nv">sum</span> <span class="nf">) </span>[ p017-run ] time <span class="k">;</span>
+</pre></div>

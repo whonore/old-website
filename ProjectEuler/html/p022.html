@@ -1,0 +1,23 @@
+<div class="factor-code"><pre><span class="c">! Wolf Honore</span>
+<span class="c">! Problem 022</span>
+<span class="c">! Description: What is the total of all the name scores in the file?</span>
+<span class="c">! Method: Reads all the names, sorts alphabetically, calculates each&#39;s score,</span>
+<span class="c">! and sums.</span>
+<span class="c">! Running time: 0.02297702 seconds</span>
+
+<span class="kn">USING:</span> <span class="nn">io.encodings.ascii</span> <span class="nn">io.files</span> <span class="nn">kernel</span> <span class="nn">math</span> <span class="nn">sequences</span> <span class="nn">sorting</span>
+<span class="nn">splitting</span> <span class="nn">tools.time</span> <span class="k">;</span>
+<span class="kn">IN:</span> <span class="nn">eul.p022</span>
+
+<span class="k">:</span> <span class="nf">name-score</span> <span class="nf">( </span><span class="nv">idx</span> <span class="nv">name</span> <span class="nf">-- </span><span class="nv">score</span> <span class="nf">) </span>
+    [ <span class="m">64 </span><span class="nb">- </span>] <span class="nb">map sum * </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">total-score</span> <span class="nf">( </span><span class="nv">file</span> <span class="nf">-- </span><span class="nv">sum</span> <span class="nf">)</span>
+    ascii file-contents <span class="s">&quot;,&quot;</span> split [ [ <span class="sc">CHAR: &quot; </span><span class="nb">= </span>] <span class="nb">trim </span>] <span class="nb">map </span>natural-sort
+    [ <span class="m">1 </span><span class="nb">+ swap </span>name-score ] <span class="nb">map-index sum </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p022-run</span> <span class="nf">( -- </span><span class="nv">sum</span> <span class="nf">) </span>
+    <span class="s">&quot;resource:work/eul/p022/p022_names.txt&quot;</span> total-score <span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p022-time</span> <span class="nf">( -- </span><span class="nv">sum</span> <span class="nf">) </span>[ p022-run ] time <span class="k">;</span>
+</pre></div>

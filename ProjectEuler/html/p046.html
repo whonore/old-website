@@ -1,0 +1,27 @@
+<div class="factor-code"><pre><span class="c">! Wolf Honore</span>
+<span class="c">! Problem 046</span>
+<span class="c">! Description: What is the smallest odd composite that cannot be written as</span>
+<span class="c">! the sum of a prime and twice a square?</span>
+<span class="c">! Method: Creates an infinite lazy list of odd composite values and loops </span>
+<span class="c">! until one is found that is not a sum of a prime number and twice a square.</span>
+<span class="c">! Running time: 0.205155282 seconds</span>
+
+<span class="kn">USING:</span> <span class="nn">kernel</span> <span class="nn">lists</span> <span class="nn">lists.lazy</span> <span class="nn">lists.lazy.examples</span> <span class="nn">math</span>
+<span class="nn">math.functions</span> <span class="nn">math.primes</span> <span class="nn">sequences</span> <span class="nn">tools.time</span> <span class="k">;</span>
+<span class="kn">IN:</span> <span class="nn">eul.p046</span>
+
+<span class="k">:</span> <span class="nf">is-sqr?</span> <span class="nf">( </span><span class="nv">n</span> <span class="nf">-- </span><span class="nv">?</span> <span class="nf">) </span>sqrt [ <span class="nb">&gt;integer </span>] <span class="nb">keep number= </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">goldbach-fails-sqr?</span> <span class="nf">( </span><span class="nv">n</span> <span class="nv">p</span> <span class="nf">-- </span><span class="nv">?</span> <span class="nf">) </span>
+    <span class="nb">- 2/ </span>is-sqr? <span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">goldbach-fails?</span> <span class="nf">( </span><span class="nv">n</span> <span class="nf">-- </span><span class="nv">?</span> <span class="nf">) </span>
+    <span class="nb">dup </span>primes-upto <span class="nb">swap </span>[ <span class="nb">swap </span>goldbach-fails-sqr? <span class="nb">not </span>] <span class="nb">curry all? </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p046-run</span> <span class="nf">( -- </span><span class="nv">min</span> <span class="nf">) </span>
+    odds 
+        [ [ <span class="m">1 </span><span class="nb">= not </span>] [ prime? <span class="nb">not </span>] [ goldbach-fails? ] <span class="nb">tri and and </span>] 
+    luntil lreverse car <span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p046-time</span> <span class="nf">( -- </span><span class="nv">min</span> <span class="nf">) </span>[ p046-run ] time <span class="k">;</span>
+</pre></div>

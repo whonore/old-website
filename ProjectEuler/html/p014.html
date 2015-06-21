@@ -1,0 +1,41 @@
+<div class="factor-code"><pre><span class="c">! Wolf Honore</span>
+<span class="c">! Problem 014</span>
+<span class="c">! Description: Which starting number, under one million, produces the longest </span>
+<span class="c">! Collatz chain?</span>
+<span class="c">! Method: Finds the length of the Collatz sequence for every starting number</span>
+<span class="c">! from 1 to 1000000 by recursively generating the chain. The recursive </span>
+<span class="c">! version is memoized so intermediate steps in the chain are not recalculated.</span>
+<span class="c">! An iterative version is also implemented but is significantly slower.</span>
+<span class="c">! Running time: 1.106428194 seconds</span>
+
+<span class="kn">USING:</span> <span class="nn">arrays</span> <span class="nn">kernel</span> <span class="nn">math</span> <span class="nn">math.order</span> <span class="nn">math.ranges</span> <span class="nn">memoize</span> <span class="nn">sequences</span>
+<span class="nn">tools.time</span> <span class="k">;</span>
+<span class="kn">IN:</span> <span class="nn">eul.p014</span>
+
+<span class="k">:</span> <span class="nf">next-collatz</span> <span class="nf">( </span><span class="nv">n</span> <span class="nf">-- </span><span class="nv">next</span> <span class="nf">) </span>
+    <span class="nb">dup even?</span>
+        [ <span class="nb">2/ </span>]
+        [ <span class="m">3 </span><span class="nb">* </span><span class="m">1 </span><span class="nb">+ </span>]
+    <span class="nb">if </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">collatz-length</span> <span class="nf">( </span><span class="nv">n</span> <span class="nf">-- </span><span class="nv">len</span> <span class="nf">) </span>
+    { <span class="m">1 </span>} <span class="nb">swap prefix</span>
+    [ <span class="nb">dup first </span><span class="m">1 </span><span class="nb">= </span>]
+        [ [ <span class="nb">first </span>next-collatz ] [ <span class="nb">second </span><span class="m">1 </span><span class="nb">+ </span>] <span class="nb">bi 2array </span>]
+    <span class="nb">until second </span><span class="k">;</span>
+    
+<span class="k">:</span> <span class="nf">collatz-length-rec</span> <span class="nf">( </span><span class="nv">n</span> <span class="nf">-- </span><span class="nv">len</span> <span class="nf">)</span>
+    <span class="nb">dup </span><span class="m">1 </span><span class="nb">=</span>
+        [ next-collatz collatz-length-rec <span class="m">1 </span><span class="nb">+ </span>]
+    <span class="nb">unless </span><span class="k">;</span>
+    
+<span class="k">:</span> <span class="nf">find-longest</span> <span class="nf">( </span><span class="nv">max</span> <span class="nf">-- </span><span class="nv">long</span> <span class="nf">) </span>
+    [1,b) [ [ collatz-length ] <span class="nb">keep 2array </span>] [ max ]  <span class="nb">map-reduce second </span><span class="k">;</span>
+    
+<span class="k">MEMO:</span> <span class="nf">find-longest-rec</span> <span class="nf">( </span><span class="nv">max</span> <span class="nf">-- </span><span class="nv">long</span> <span class="nf">) </span>
+    [1,b) [ [ collatz-length-rec ] <span class="nb">keep 2array </span>] [ max ]  <span class="nb">map-reduce second </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p014-run</span> <span class="nf">( -- </span><span class="nv">long</span> <span class="nf">) </span><span class="m">1000000 </span>find-longest-rec <span class="k">; </span>
+
+<span class="k">:</span> <span class="nf">p014-time</span> <span class="nf">( -- </span><span class="nv">long</span> <span class="nf">) </span>[ p014-run ] time <span class="k">;</span>
+</pre></div>

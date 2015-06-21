@@ -1,0 +1,19 @@
+<div class="factor-code"><pre><span class="c">! Wolf Honore</span>
+<span class="c">! Problem 016</span>
+<span class="c">! Description: What is the sum of the digits of the number 2^1000?</span>
+<span class="c">! Method: Computes 2^1000 and sums the digits by converting to a string and</span>
+<span class="c">! mapping each digit back to a number.</span>
+<span class="c">! Running time: 0.000362932 seconds</span>
+
+<span class="kn">USING:</span> <span class="nn">kernel</span> <span class="nn">math</span> <span class="nn">math.functions</span> <span class="nn">math.parser</span> <span class="nn">sequences</span> <span class="nn">strings</span>
+<span class="nn">tools.time</span> <span class="k">;</span>
+<span class="kn">IN:</span> <span class="nn">eul.p016</span>
+
+<span class="k">:</span> <span class="nf">pow-2-digit-sum</span> <span class="nf">( </span><span class="nv">pow</span> <span class="nf">-- </span><span class="nv">sum</span> <span class="nf">) </span>
+    <span class="nb">2^ </span>number&gt;string
+    [ <span class="nb">1string </span>string&gt;number ] [ <span class="nb">+ </span>] <span class="nb">map-reduce </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p016-run</span> <span class="nf">( -- </span><span class="nv">sum</span> <span class="nf">) </span><span class="m">1000 </span>pow-2-digit-sum <span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p016-time</span> <span class="nf">( -- </span><span class="nv">sum</span> <span class="nf">) </span>[ p016-run ] time <span class="k">;</span>
+</pre></div>

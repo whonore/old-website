@@ -1,0 +1,19 @@
+<div class="factor-code"><pre><span class="c">! Wolf Honore</span>
+<span class="c">! Problem 020</span>
+<span class="c">! Description: Find the sum of the digits in the number 100!</span>
+<span class="c">! Method: Computes 100! and sums the digits by converting to a string and</span>
+<span class="c">! mapping each digit back to a number.</span>
+<span class="c">! Running time: 0.000275121 seconds</span>
+
+<span class="kn">USING:</span> <span class="nn">math</span> <span class="nn">math.factorials</span> <span class="nn">math.parser</span> <span class="nn">sequences</span> <span class="nn">strings</span>
+<span class="nn">tools.time</span> <span class="k">;</span>
+<span class="kn">IN:</span> <span class="nn">eul.p020</span>
+
+<span class="k">:</span> <span class="nf">fact-digit-sum</span> <span class="nf">( </span><span class="nv">n</span> <span class="nf">-- </span><span class="nv">m</span> <span class="nf">)</span>
+    n! number&gt;string
+    [ <span class="nb">1string </span>string&gt;number ] [ <span class="nb">+ </span>] <span class="nb">map-reduce </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p020-run</span> <span class="nf">( -- </span><span class="nv">sum</span> <span class="nf">) </span><span class="m">100 </span>fact-digit-sum <span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p020-time</span> <span class="nf">( -- </span><span class="nv">sum</span> <span class="nf">) </span>[ p020-run ] time <span class="k">;</span>
+</pre></div>

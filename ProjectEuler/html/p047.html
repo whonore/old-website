@@ -1,0 +1,22 @@
+<div class="factor-code"><pre><span class="c">! Wolf Honore</span>
+<span class="c">! Problem 047</span>
+<span class="c">! Description: Find the first four consecutive integers to have four distinct</span>
+<span class="c">! prime factors. What is the first of these numbers?</span>
+<span class="c">! Method: Creates an infinite lazy list of the number of unique factors of</span>
+<span class="c">! every natural number. Takes values 4 at a time until all 4 equal 4.</span>
+<span class="c">! Running time: 0.199398554 seconds</span>
+
+<span class="kn">USING:</span> <span class="nn">arrays</span> <span class="nn">kernel</span> <span class="nn">lists</span> <span class="nn">lists.lazy</span> <span class="nn">lists.lazy.examples</span> <span class="nn">locals</span>
+<span class="nn">math</span> <span class="nn">math.primes.factors</span> <span class="nn">sequences</span> <span class="nn">tools.time</span> <span class="k">;</span>
+<span class="kn">IN:</span> <span class="nn">eul.p047</span>
+    
+<span class="k">::</span> <span class="nf">first-n-consec</span> <span class="nf">( </span><span class="nv">n</span> <span class="nf">-- </span><span class="nv">fst</span> <span class="nf">)</span>
+    <span class="m">0 </span>naturals [ unique-factors <span class="nb">length </span>] lazy-map
+        [ n <span class="nb">over </span>ltake list&gt;array n <span class="nb">dup &lt;array&gt; = </span>]
+        [ cdr [ <span class="m">1 </span><span class="nb">+ </span>] <span class="nb">dip </span>]
+    <span class="nb">until drop </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p047-run</span> <span class="nf">( -- </span><span class="nv">fst</span> <span class="nf">) </span><span class="m">4 </span>first-n-consec <span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p047-time</span> <span class="nf">( -- </span><span class="nv">fst</span> <span class="nf">) </span>[ p047-run ] time <span class="k">;</span>
+</pre></div>

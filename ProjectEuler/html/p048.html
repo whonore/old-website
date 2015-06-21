@@ -1,0 +1,19 @@
+<div class="factor-code"><pre><span class="c">! Wolf Honore</span>
+<span class="c">! Problem 048</span>
+<span class="c">! Description: Find the last ten digits of the series, 1^1 + 2^2 + 3^3 + ... </span>
+<span class="c">! + 1000^1000.</span>
+<span class="c">! Method: Computes the sum of 1^1 + ... + 1000^1000 but uses mod to keep only</span>
+<span class="c">! the last 10 digits at every step.</span>
+<span class="c">! Running time: 0.022437897 seconds</span>
+
+<span class="kn">USING:</span> <span class="nn">kernel</span> <span class="nn">locals</span> <span class="nn">math</span> <span class="nn">math.functions</span> <span class="nn">math.ranges</span> <span class="nn">sequences</span>
+<span class="nn">tools.time</span> <span class="k">;</span>
+<span class="kn">IN:</span> <span class="nn">eul.p048</span>
+
+<span class="k">::</span> <span class="nf">self-pow-sum</span> <span class="nf">( </span><span class="nv">digits</span> <span class="nv">max</span> <span class="nf">-- </span><span class="nv">sum</span> <span class="nf">) </span>
+    max [1,b] [ <span class="nb">dup </span>^ digits 10^ <span class="nb">mod </span>] <span class="nb">map-sum </span>digits 10^ <span class="nb">mod </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p048-run</span> <span class="nf">( -- </span><span class="nv">n</span> <span class="nf">) </span><span class="m">10 1000 </span>self-pow-sum <span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p048-time</span> <span class="nf">( -- </span><span class="nv">n</span> <span class="nf">) </span>[ p048-run ] time <span class="k">;</span>
+</pre></div>

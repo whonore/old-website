@@ -1,0 +1,16 @@
+<div class="factor-code"><pre><span class="c">! Wolf Honore</span>
+<span class="c">! Problem 010</span>
+<span class="c">! Description: Find the sum of all the primes below two million.</span>
+<span class="c">! Method: Uses the built-in primes vocabulary to generate a list of primes</span>
+<span class="c">! below 2000000 and sums them.</span>
+<span class="c">! Running time: 0.044541118 seconds</span>
+
+<span class="kn">USING:</span> <span class="nn">math.primes</span> <span class="nn">sequences</span> <span class="nn">tools.time</span> <span class="k">;</span>
+<span class="kn">IN:</span> <span class="nn">eul.p010</span>
+
+<span class="k">:</span> <span class="nf">prime-sum</span> <span class="nf">( </span><span class="nv">max</span> <span class="nf">-- </span><span class="nv">sum</span> <span class="nf">) </span>primes-upto <span class="nb">sum </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p010-run</span> <span class="nf">( -- </span><span class="nv">sum</span> <span class="nf">) </span><span class="m">2000000 </span>prime-sum <span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p010-time</span> <span class="nf">( -- </span><span class="nv">sum</span> <span class="nf">) </span>[ p010-run ] time <span class="k">;</span>
+</pre></div>

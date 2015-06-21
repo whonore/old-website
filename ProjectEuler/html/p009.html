@@ -1,0 +1,34 @@
+<div class="factor-code"><pre><span class="c">! Wolf Honore</span>
+<span class="c">! Problem 009</span>
+<span class="c">! Description: There exists exactly one Pythagorean triplet for which </span>
+<span class="c">! a + b + c = 1000. Find the product abc.</span>
+<span class="c">! Method: Generates a list of all Pythagorean triplets where b &lt; 1000, find </span>
+<span class="c">! the one that sums to the desired value and take the product of a, b, c.</span>
+<span class="c">! Running time: 0.652093417 seconds</span>
+
+<span class="kn">USING:</span> <span class="nn">arrays</span> <span class="nn">assocs</span> <span class="nn">fry</span> <span class="nn">kernel</span> <span class="nn">math</span> <span class="nn">math.functions</span> <span class="nn">math.ranges</span>
+<span class="nn">sequences</span> <span class="nn">tools.time</span> <span class="k">;</span>
+<span class="kn">IN:</span> <span class="nn">eul.p009</span>
+
+<span class="k">:</span> <span class="nf">get-c</span> <span class="nf">( </span><span class="nv">a</span> <span class="nv">b</span> <span class="nf">-- </span><span class="nv">c/?</span> <span class="nf">) </span>
+    [ <span class="nb">sq </span>] <span class="nb">bi@ + </span>sqrt 
+    [ <span class="nb">&gt;integer </span>] <span class="nb">keep over </span>
+        <span class="nb">number= </span>
+        [ ]
+        [ <span class="nb">drop </span><span class="no">f </span>]
+    <span class="nb">if </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">find-triplets</span> <span class="nf">( </span><span class="nv">sum</span> <span class="nf">-- </span><span class="nv">trips</span> <span class="nf">) </span>
+    [1,b] <span class="nb">dup </span>
+    [ [ get-c ] <span class="nb">2keep 2array swap 2array </span>] <span class="nb">cartesian-map concat </span>
+    <span class="nb">sift-values </span><span class="k">;</span>
+    
+<span class="k">:</span> <span class="nf">find-the-one</span> <span class="nf">( </span><span class="nv">sum</span> <span class="nf">-- </span><span class="nv">trip</span> <span class="nf">)</span>
+    <span class="nb">dup </span>find-triplets <span class="nb">swap </span>&#39;[ <span class="nb">suffix sum </span>_ <span class="nb">= </span>] <span class="nb">assoc-find drop suffix </span><span class="k">;</span>
+    
+<span class="k">:</span> <span class="nf">abc-prod</span> <span class="nf">( </span><span class="nv">max</span> <span class="nf">-- </span><span class="nv">prod</span> <span class="nf">) </span>find-the-one <span class="nb">product </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p009-run</span> <span class="nf">( -- </span><span class="nv">prod</span> <span class="nf">) </span><span class="m">1000 </span>abc-prod <span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p009-time</span> <span class="nf">( -- </span><span class="nv">prod</span> <span class="nf">) </span>[ p009-run ] time <span class="k">;</span>
+</pre></div>

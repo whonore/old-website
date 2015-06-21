@@ -1,0 +1,23 @@
+<div class="factor-code"><pre><span class="c">! Wolf Honore</span>
+<span class="c">! Problem 035</span>
+<span class="c">! Description: How many circular primes are there below one million?</span>
+<span class="c">! Method: Uses the circular-clump word to create a sequence of every rotation</span>
+<span class="c">! of a number and checks if each is prime. Counts how many numbers satisfy</span>
+<span class="c">! this property below 1000000.</span>
+<span class="c">! Running time: 2.100421149 seconds</span>
+
+<span class="kn">USING:</span> <span class="nn">grouping</span> <span class="nn">kernel</span> <span class="nn">math.parser</span> <span class="nn">math.primes</span> <span class="nn">math.ranges</span>
+<span class="nn">sequences</span> <span class="nn">tools.time</span> <span class="k">;</span>
+<span class="kn">IN:</span> <span class="nn">eul.p035</span>
+
+<span class="k">:</span> <span class="nf">is-circ</span> <span class="nf">( </span><span class="nv">n</span> <span class="nf">-- </span><span class="nv">?</span> <span class="nf">) </span>
+    number&gt;string <span class="nb">dup length </span>circular-clump 
+    [ string&gt;number prime? ] <span class="nb">all? </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">circ-below</span> <span class="nf">( </span><span class="nv">n</span> <span class="nf">-- </span><span class="nv">m</span> <span class="nf">) </span>
+    [1,b) [ is-circ ] <span class="nb">count </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p035-run</span> <span class="nf">( -- </span><span class="nv">n</span> <span class="nf">) </span><span class="m">1000000 </span>circ-below <span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p035-time</span> <span class="nf">( -- </span><span class="nv">n</span> <span class="nf">) </span>[ p035-run ] time <span class="k">;</span>
+</pre></div>

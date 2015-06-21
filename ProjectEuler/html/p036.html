@@ -1,0 +1,24 @@
+<div class="factor-code"><pre><span class="c">! Wolf Honore</span>
+<span class="c">! Problem 036</span>
+<span class="c">! Description: Find the sum of all numbers, less than one million, which are </span>
+<span class="c">! palindromic in base 10 and base 2.</span>
+<span class="c">! Method: For every number from 1 to 1000000, converts to binary with &gt;base</span>
+<span class="c">! and checks if the base-2 and base-10 representations are palindromes. Sums</span>
+<span class="c">! the values for which this is true.</span>
+<span class="c">! Running time: 1.332833649 seconds</span>
+
+<span class="kn">USING:</span> <span class="nn">kernel</span> <span class="nn">math.parser</span> <span class="nn">math.ranges</span> <span class="nn">sequences</span> <span class="nn">tools.time</span> <span class="k">;</span>
+<span class="kn">IN:</span> <span class="nn">eul.p036</span>
+
+<span class="k">:</span> <span class="nf">is-pal?</span> <span class="nf">( </span><span class="nv">n</span> <span class="nf">-- </span><span class="nv">?</span> <span class="nf">) </span><span class="nb">dup reverse = </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">is-double-pal?</span> <span class="nf">( </span><span class="nv">n</span> <span class="nf">-- </span><span class="nv">?</span> <span class="nf">) </span>
+    [ number&gt;string ] [ <span class="m">2 </span>&gt;base ] <span class="nb">bi </span>[ is-pal? ] <span class="nb">bi@ and </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">double-pal-less-than</span> <span class="nf">( </span><span class="nv">n</span> <span class="nf">-- </span><span class="nv">sum</span> <span class="nf">) </span>
+    [1,b] [ <span class="nb">dup </span>is-double-pal? [ <span class="nb">drop </span><span class="m">0 </span>] <span class="nb">unless </span>] <span class="nb">map-sum </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p036-run</span> <span class="nf">( -- </span><span class="nv">sum</span> <span class="nf">) </span><span class="m">1000000 </span>double-pal-less-than <span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p036-time</span> <span class="nf">( -- </span><span class="nv">time</span> <span class="nf">) </span>[ p036-run ] time <span class="k">;</span>
+</pre></div>

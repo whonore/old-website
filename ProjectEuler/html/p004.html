@@ -1,0 +1,26 @@
+<div class="factor-code"><pre><span class="c">! Wolf Honore</span>
+<span class="c">! Problem 004</span>
+<span class="c">! Description: Find the largest palindrome made from the product of two </span>
+<span class="c">! 3-digit numbers.</span>
+<span class="c">! Method: Creates a list of all the products of 3 digit numbers, filters out</span>
+<span class="c">! non-palindromes and takes the largest value.</span>
+<span class="c">! Running time: 0.169364642 seconds</span>
+
+<span class="kn">USING:</span> <span class="nn">kernel</span> <span class="nn">locals</span> <span class="nn">math</span> <span class="nn">math.parser</span> <span class="nn">math.ranges</span> <span class="nn">sequences</span>
+<span class="nn">sequences.deep</span> <span class="nn">tools.time</span> <span class="k">;</span>
+<span class="kn">IN:</span> <span class="nn">eul.p004</span>
+
+<span class="k">:</span> <span class="nf">palindrome?</span> <span class="nf">( </span><span class="nv">str</span> <span class="nf">-- </span><span class="nv">?</span> <span class="nf">) </span>number&gt;string <span class="nb">dup reverse = </span><span class="k">;</span>
+
+<span class="k">::</span> <span class="nf">mults-in-range</span> <span class="nf">( </span><span class="nv">min</span> <span class="nv">max</span> <span class="nf">-- </span><span class="nv">seq</span> <span class="nf">)</span>
+    V{ } min max [a,b] 
+        [ <span class="nb">dup </span>min <span class="nb">swap </span>[a,b] <span class="nb">swap </span>[ <span class="nb">* </span>] <span class="nb">curry map suffix </span>] 
+    <span class="nb">each </span>flatten <span class="k">;</span>
+    
+<span class="k">:</span> <span class="nf">find-max-palindrome</span> <span class="nf">( </span><span class="nv">min</span> <span class="nv">max</span> <span class="nf">-- </span><span class="nv">max</span> <span class="nf">) </span>
+     mults-in-range [ palindrome? ] <span class="nb">filter supremum </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p004-run</span> <span class="nf">( -- </span><span class="nv">max</span> <span class="nf">) </span><span class="m">100 999 </span>find-max-palindrome <span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p004-time</span> <span class="nf">( -- </span><span class="nv">max</span> <span class="nf">) </span>[ p004-run ] time <span class="k">;</span>
+</pre></div>

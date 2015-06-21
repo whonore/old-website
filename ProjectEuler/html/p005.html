@@ -1,0 +1,17 @@
+<div class="factor-code"><pre><span class="c">! Wolf Honore</span>
+<span class="c">! Problem 005</span>
+<span class="c">! Description: What is the smallest positive number that is evenly divisible </span>
+<span class="c">! by all of the numbers from 1 to 20?</span>
+<span class="c">! Method: Finds the least common multiple (lcm) of the values from 1 to 20.</span>
+<span class="c">! Running time: 9.408999999999999e-006 seconds</span>
+
+<span class="kn">USING:</span> <span class="nn">math.functions</span> <span class="nn">math.ranges</span> <span class="nn">sequences</span> <span class="nn">tools.time</span> <span class="k">;</span>
+<span class="kn">IN:</span> <span class="nn">eul.p005</span>
+
+<span class="k">:</span> <span class="nf">lcm-sequence</span> <span class="nf">( </span><span class="nv">min</span> <span class="nv">max</span> <span class="nf">-- </span><span class="nv">lcm</span> <span class="nf">)</span>
+    [a,b] <span class="m">1 </span>[ lcm ] <span class="nb">reduce </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p005-run</span> <span class="nf">( -- </span><span class="nv">min</span> <span class="nf">) </span><span class="m">1 20 </span>lcm-sequence <span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p005-time</span> <span class="nf">( -- </span><span class="nv">min</span> <span class="nf">) </span>[ p005-run ] time <span class="k">;</span>
+</pre></div>

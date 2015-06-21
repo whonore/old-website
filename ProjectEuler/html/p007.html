@@ -1,0 +1,16 @@
+<div class="factor-code"><pre><span class="c">! Wolf Honore</span>
+<span class="c">! Problem 007</span>
+<span class="c">! Description: What is the 10,001st prime number?</span>
+<span class="c">! Method: Uses the built-in primes vocabulary to generate the first 10001 </span>
+<span class="c">! primes and then takes the last.</span>
+<span class="c">! Running time: 0.007773477 seconds</span>
+
+<span class="kn">USING:</span> <span class="nn">math.primes</span> <span class="nn">sequences</span> <span class="nn">tools.time</span> <span class="k">;</span>
+<span class="kn">IN:</span> <span class="nn">eul.p007</span>
+
+<span class="k">:</span> <span class="nf">nth-prime</span> <span class="nf">( </span><span class="nv">n</span> <span class="nf">-- </span><span class="nv">p</span> <span class="nf">) </span>nprimes <span class="nb">last </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p007-run</span> <span class="nf">( -- </span><span class="nv">p</span> <span class="nf">) </span><span class="m">10001 </span>nth-prime <span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p007-time</span> <span class="nf">( -- </span><span class="nv">p</span> <span class="nf">) </span>[ p007-run ] time <span class="k">;</span>
+</pre></div>

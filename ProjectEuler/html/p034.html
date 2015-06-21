@@ -1,0 +1,26 @@
+<div class="factor-code"><pre><span class="c">! Wolf Honore</span>
+<span class="c">! Problem 034</span>
+<span class="c">! Description: Find the sum of all numbers which are equal to the sum of the </span>
+<span class="c">! factorial of their digits.</span>
+<span class="c">! Method: Checks, for every number from 3 to 7 * 9!, if it equals the sum of</span>
+<span class="c">! the factorial of its digits. If so the number is summed and if not it is</span>
+<span class="c">! replaced by 0. The upper limit is 7 * 9! because 8 * 9! is a 7 digit number</span>
+<span class="c">! so after that point the sum of the factorial of the digits is always greater</span>
+<span class="c">! than the number.</span>
+<span class="c">! Running time: 0.8895191180000001 seconds</span>
+
+<span class="kn">USING:</span> <span class="nn">kernel</span> <span class="nn">math</span> <span class="nn">math.factorials</span> <span class="nn">math.parser</span> <span class="nn">math.ranges</span>
+<span class="nn">sequences</span> <span class="nn">tools.time</span> <span class="k">;</span>
+<span class="kn">IN:</span> <span class="nn">eul.p034</span>
+
+<span class="k">:</span> <span class="nf">fact-digit-sum</span> <span class="nf">( </span><span class="nv">n</span> <span class="nf">-- </span><span class="nv">sum</span> <span class="nf">) </span>
+    number&gt;string string&gt;digits [ factorial ] <span class="nb">map-sum </span><span class="k">;</span>
+    
+<span class="k">:</span> <span class="nf">is-special?</span> <span class="nf">( </span><span class="nv">n</span> <span class="nf">-- </span><span class="nv">?</span> <span class="nf">)</span>
+    [ fact-digit-sum ] <span class="nb">keep = </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p034-run</span> <span class="nf">( -- </span><span class="nv">sum</span> <span class="nf">) </span>
+    <span class="m">3 9 </span>factorial <span class="m">7 </span><span class="nb">* </span>[a,b] [ <span class="nb">dup </span>is-special? [ <span class="nb">drop </span><span class="m">0 </span>] <span class="nb">unless </span>] <span class="nb">map-sum </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p034-time</span> <span class="nf">( -- </span><span class="nv">sum</span> <span class="nf">) </span>[ p034-run ] time <span class="k">;</span>
+</pre></div>

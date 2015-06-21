@@ -1,0 +1,24 @@
+<div class="factor-code"><pre><span class="c">! Wolf Honore</span>
+<span class="c">! Problem 012</span>
+<span class="c">! Description: What is the value of the first triangle number to have over </span>
+<span class="c">! five hundred divisors?</span>
+<span class="c">! Method: Uses map-find to iterate over the values in [0, 100000000), </span>
+<span class="c">! calculate the nth triangle number and stop when it has more than 500 </span>
+<span class="c">! divisors. 100000000 is an arbitrarily chosen upper limit.</span>
+<span class="c">! Running time: 0.300456615 seconds</span>
+
+<span class="kn">USING:</span> <span class="nn">fry</span> <span class="nn">kernel</span> <span class="nn">math</span> <span class="nn">math.primes.factors</span> <span class="nn">sequences</span> <span class="nn">tools.time</span> <span class="k">;</span>
+<span class="kn">IN:</span> <span class="nn">eul.p012</span>
+
+<span class="k">:</span> <span class="nf">nth-tri</span> <span class="nf">( </span><span class="nv">n</span> <span class="nf">-- </span><span class="nv">tri</span> <span class="nf">) </span>[ <span class="m">1 </span><span class="nb">+ </span>] <span class="nb">keep * </span><span class="m">2 </span><span class="nb">/ </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">enough-divisors?</span> <span class="nf">( </span><span class="nv">n</span> <span class="nv">min</span> <span class="nf">-- </span><span class="nv">?</span> <span class="nf">) </span>[ divisors <span class="nb">length </span>] <span class="nb">dip &gt; </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">more-than</span> <span class="nf">( </span><span class="nv">n</span> <span class="nf">-- </span><span class="nv">fst</span> <span class="nf">) </span>
+    <span class="m">100000000 </span><span class="nb">iota swap </span>&#39;[ nth-tri _ enough-divisors? ] 
+    <span class="nb">map-find </span>nth-tri <span class="nb">nip </span><span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p012-run</span> <span class="nf">( -- </span><span class="nv">fst</span> <span class="nf">) </span><span class="m">500 </span>more-than <span class="k">;</span>
+
+<span class="k">:</span> <span class="nf">p012-time</span> <span class="nf">( -- </span><span class="nv">fst</span> <span class="nf">) </span>[ p012-run ] time <span class="k">;</span>
+</pre></div>
