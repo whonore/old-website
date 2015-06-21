@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var buttons = loadButtons(6);
+  loadButtons(6);
   
   $(buttons).click(loadFactor);
 });
@@ -28,13 +28,13 @@ function loadButtons(numRows) {
         );
         
         if (!data.hasOwnProperty(padded)) {
-          $(rows[i], ':last-child').addClass('invalid');
+          $(rows[i]).children().last().addClass('invalid');
         }
       }
     }
+    
+    $('.problem-select button').click(loadFactor);
   });
-
-  return $('.problem-select button');
 }
 
 function loadFactor() {
@@ -42,4 +42,5 @@ function loadFactor() {
   $('button.active').removeClass('active');
   $(this).addClass('active');
   $('#problem').load('/ProjectEuler/html/' + $(this).attr('id') + '.html');
+  $('#tests').load('/ProjectEuler/html/' + $(this).attr('id') + '-tests.html');
 }
